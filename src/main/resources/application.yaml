@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    name: book
+    url: jdbc:mysql://localhost:5555/book?serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 4444

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: book
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "5555:3306"
+
+  springboot:
+    image: your-spring-boot-image
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:5555/book?serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysql
+    ports:
+      - "4444:4444"
